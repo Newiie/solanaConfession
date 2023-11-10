@@ -5,8 +5,94 @@ import { Keypair, PublicKey, SystemProgram, Transaction } from '@solana/web3.js'
 
 import idl from '../idl.json'
 
+const idlF = {
+    "version": "0.1.0",
+    "name": "confession_program",
+    "instructions": [
+      {
+        "name": "initialize",
+        "accounts": [
+          {
+            "name": "confession",
+            "isMut": true,
+            "isSigner": true
+          },
+          {
+            "name": "authority",
+            "isMut": true,
+            "isSigner": true
+          },
+          {
+            "name": "systemProgram",
+            "isMut": false,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "updateConfession",
+        "accounts": [
+          {
+            "name": "confession",
+            "isMut": true,
+            "isSigner": false
+          }
+        ],
+        "args": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          }
+        ]
+      }
+    ],
+    "accounts": [
+      {
+        "name": "Confession",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "name": "authority",
+              "type": "publicKey"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": {
+      "address": "2Yj7ewkPsKPn7rUV9yDGygPmUAVY95eAQxvwgk7Ts2Yf"
+    }
+  }
+  
 const ConfessionContext = createContext();
-const PROGRAM_KEY = new PublicKey(idl.metadata.address);
+const PROGRAM_KEY = new PublicKey("2Yj7ewkPsKPn7rUV9yDGygPmUAVY95eAQxvwgk7Ts2Yf");
 
 
 export const useConfession = () => {
