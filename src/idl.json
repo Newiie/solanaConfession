@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "name": "confession_program",
+  "name": "confession",
   "instructions": [
     {
       "name": "initialize",
@@ -80,6 +80,6 @@
     }
   ],
   "metadata": {
-    "address": "2Yj7ewkPsKPn7rUV9yDGygPmUAVY95eAQxvwgk7Ts2Yf"
+    "address": "J2tVo9auKSktt14MypVcx5992V95HxMAS2PRjgz9H2bU"
   }
 }
